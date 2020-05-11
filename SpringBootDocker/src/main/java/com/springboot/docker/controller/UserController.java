@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.docker.domain.User;
@@ -28,6 +29,7 @@ public class UserController {
 
     @Transactional
     @PostMapping
+    @ResponseBody
     public User get(User user) {
         System.out.println("/user/post");
         System.out.println(user);
