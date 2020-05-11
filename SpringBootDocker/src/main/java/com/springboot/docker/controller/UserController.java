@@ -16,13 +16,12 @@ import com.springboot.docker.repository.UserRepository;
 public class UserController {
 
     @Autowired
-    private UserRepository userController;
+    private UserRepository userRepository;
 
     @GetMapping
     public User get(Integer id) {
         System.out.println("/user/get");
-        User user = new User();
-        user.setName("name");
+        User user = userRepository.getOne(id);
         return user;
     }
 
@@ -31,7 +30,7 @@ public class UserController {
     public User get(User user) {
         System.out.println("/user/post");
         System.out.println(user);
-        userController.save(user);
+        userRepository.save(user);
         return user;
     }
 
