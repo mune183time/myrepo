@@ -5,7 +5,8 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:2.2.7.RELEASE")
         //classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath "se.transmode.gradle:gradle-docker:1.2"    }
+        classpath "se.transmode.gradle:gradle-docker:1.2"    
+        }
 }
 
 plugins {
@@ -47,7 +48,15 @@ test {
     useJUnitPlatform()
 }
 
-task buildDocker(type: Docker, dependsOn: build) {
+jar {
+    baseName = 'springbootdocker'
+    archiveName = "${baseName}-${version}.jar"
+}
+
+task docker(type: Docker, dependsOn: build) {
+    print jar.baseName
+    print jar.archiveName
+    
     applicationName = jar.baseName
     dockerfile = file('Dockerfile')
     doFirst {
