@@ -20,8 +20,9 @@ public class UserController {
 
     @GetMapping
     public User get(Integer id) {
-        System.out.println("/user/get");
+        System.out.println("/user/get/" + id);
         User user = userRepository.getOne(id);
+        System.out.println(user);
         return user;
     }
 
