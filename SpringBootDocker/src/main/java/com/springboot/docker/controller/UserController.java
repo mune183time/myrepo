@@ -31,7 +31,7 @@ public class UserController {
     @PostMapping
     @ResponseBody
     public User get(User user) {
-        System.out.println("/user/post");
+        System.out.println("/user/post" + user.getName());
         System.out.println(user);
         userRepository.save(user);
         return user;
