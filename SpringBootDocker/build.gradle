@@ -17,7 +17,7 @@ plugins {
 apply plugin: 'docker'
 
 group = 'com.springboot.docker'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1-snapshot'
 sourceCompatibility = '11'
 
 configurations {
