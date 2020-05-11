@@ -4,9 +4,11 @@ spring:
       hibernate:
         show_sql: true
         use_sql_comments: false
-        format_sql: false
+        format_sql: true
+    hibernate:
+      ddl-auto: update
   datasource:
-    url: jdbc:postgresql://localhost:5433/db
+    #url: jdbc:postgresql://localhost:5432/test
     username: admin
     password: admin
     driverClassName: org.postgresql.Driver
