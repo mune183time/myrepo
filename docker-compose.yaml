@@ -1,0 +1,20 @@
+version: '3'
+services:
+  app:
+    image: docker/spring-boot-docker
+    ports:
+      - 8080:8080
+    #build: SpringBootDocker
+    environment:
+      spring.datasource.url: "jdbc:postgresql://db:5432/test"
+    depends_on:
+      - db
+  db:
+    build: postgresql
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: test
+      
