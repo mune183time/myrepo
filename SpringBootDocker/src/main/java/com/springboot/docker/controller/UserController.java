@@ -54,4 +54,9 @@ public class UserController {
         return ret.getBody();
     }
 
+    @GetMapping(path = "/hc")
+    public int hc() {
+        return 200;
+    }
+
 }
