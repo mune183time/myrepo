@@ -1,15 +1,3 @@
 spring:
-  jpa:
-    properties:
-      hibernate:
-        show_sql: true
-        use_sql_comments: false
-        format_sql: true
-    hibernate:
-      ddl-auto: update
-  datasource:
-    #url: jdbc:postgresql://localhost:5432/test
-    username: postgres
-    password: postgres
-    driverClassName: org.postgresql.Driver
-    #comment
+  profiles:
+   active: prod

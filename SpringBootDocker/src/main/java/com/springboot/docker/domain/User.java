@@ -1,15 +1,20 @@
 package com.springboot.docker.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Data
 @Entity(name = "USER_TBL")
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +27,13 @@ public class User {
 
     public User(String name, int age) {
         super();
+        this.name = name;
+        this.age = age;
+    }
+
+    public User(int id, String name, int age) {
+        super();
+        this.id = id;
         this.name = name;
         this.age = age;
     }
