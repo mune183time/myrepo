@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sb-app
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: sb-app
+      labels:
+        app: sb-app
+    spec:
+      containers:
+      - name: sb-app
+        image: 144026253291.dkr.ecr.us-east-1.amazonaws.com/springbootdocker:latest
+        ports:
+        - containerPort: 8080
+        
