@@ -1,0 +1,13 @@
+wordpress:
+  image: wordpress
+  mem_limit: 67108864
+  ports:
+    - "80:80"
+  links:
+    - mysql
+
+mysql:
+  image: mysql
+  #mem_limit: 67108864
+  environment:
+    MYSQL_ROOT_PASSWORD: password
