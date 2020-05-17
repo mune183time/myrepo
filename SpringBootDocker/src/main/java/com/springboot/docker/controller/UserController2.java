@@ -19,10 +19,10 @@ import org.springframework.web.client.RestTemplate;
 import com.springboot.docker.domain.User;
 import com.springboot.docker.repository.UserRepository;
 
-@Profile({ "prod" })
-@RequestMapping("/user")
+@Profile({ "prod2" })
+@RequestMapping("/user2")
 @RestController
-public class UserController {
+public class UserController2 {
 
     @Autowired
     private UserRepository userRepository;
