@@ -1,5 +1,8 @@
 package com.springboot.docker.controller;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,19 +32,20 @@ public class UserController {
 
     @GetMapping
     public User get(Integer id) {
-        System.out.println("/user/get/" + id);
+        System.out.println("/user/get/" + getHostInfo());
         User user = userRepository.getOne(id);
         System.out.println(user);
-        return new User(user.getId(), user.getName(), user.getAge());
+        return new User(user.getId(), getHostInfo(), user.getAge());
     }
 
     @Transactional
     @GetMapping(path = "/create")
     @ResponseBody
     public User create(User user) {
-        System.out.println("/user/post" + user.getName());
+        System.out.println("/user/post/" + getHostInfo());
         System.out.println(user);
         userRepository.save(user);
+        user.setName(getHostInfo());
         return user;
     }
 
@@ -51,12 +55,22 @@ public class UserController {
         RestTemplate restTemplate = restTemplateBuilder.build();
         ResponseEntity<User> ret = restTemplate.getForEntity(url, User.class);
         System.out.println(ret.getBody());
+        ret.getBody().setName(getHostInfo());
         return ret.getBody();
     }
 
     @GetMapping(path = "/hc")
     public int hc() {
         return 200;
+    }
+
+    private String getHostInfo() {
+        try {
+            InetAddress inetAddress = InetAddress.getLocalHost();
+            return inetAddress.getHostName() + "-" + inetAddress.getHostAddress();
+        } catch (UnknownHostException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
