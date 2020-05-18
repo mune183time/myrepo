@@ -33,4 +33,4 @@ spring:
             jwk-set-uri: https://cognito-idp.ap-northeast-1.amazonaws.com/ap-northeast-1_qDX6zQDUR/.well-known/jwks.json
             user-name-attribute: cognito:username
 server:
-  port : 8081
+  port : 8080
