@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: sb-app-cip
+  name: sb-app-cip2
 spec:
   type: ClusterIP
   selector:
-    app: sb-app
+    app: sb-app2
   ports:
     - protocol: TCP
-      port: 8080
-      targetPort: 8080
+      port: 8082
+      targetPort: 8082
       

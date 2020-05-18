@@ -14,4 +14,4 @@ spring:
     driverClassName: org.postgresql.Driver
     #comment
 server:
-  port : 8081
+  port : 8082
