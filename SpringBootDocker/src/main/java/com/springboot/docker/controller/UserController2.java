@@ -57,7 +57,6 @@ public class UserController2 {
         RestTemplate restTemplate = restTemplateBuilder.build();
         ResponseEntity<User> ret = restTemplate.getForEntity(url, User.class);
         System.out.println(ret.getBody());
-        ret.getBody().setName(getHostInfo());
         return ret.getBody();
     }
 
