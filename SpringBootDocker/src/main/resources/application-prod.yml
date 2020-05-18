@@ -13,5 +13,24 @@ spring:
     password: postgres
     driverClassName: org.postgresql.Driver
     #comment
+  security:
+    oauth2:
+      client:
+        registration:
+          cognito-client-1:
+            client-id: 3bcm98v9aertvu96ihepkbreka
+            client-secret: b67u8jub8svfblentnkoj31b31jaguobojieufiavv135cgo481
+            client-name: Cognito Code Grant
+            provider: cognito
+            scope: openid
+            redirect-uri-template: http://localhost:8080/login/oauth2/code/cognito
+            authorization-grant-type: authorization_code
+        provider:
+          cognito:
+            authorization-uri: https://144026253291.auth.ap-northeast-1.amazoncognito.com/oauth2/authorize
+            token-uri: https://144026253291.auth.ap-northeast-1.amazoncognito.com/oauth2/token
+            user-info-uri: https://144026253291.auth.ap-northeast-1.amazoncognito.com/oauth2/userInfo
+            jwk-set-uri: https://cognito-idp.ap-northeast-1.amazonaws.com/ap-northeast-1_qDX6zQDUR/.well-known/jwks.json
+            user-name-attribute: cognito:username
 server:
   port : 8081
