@@ -34,3 +34,7 @@ spring:
             user-name-attribute: cognito:username
 server:
   port : 8080
+
+#logging:
+#  level:
+#    root: DEBUG
