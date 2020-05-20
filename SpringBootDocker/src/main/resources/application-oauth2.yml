@@ -23,6 +23,7 @@ spring:
             client-name: Cognito Code Grant
             provider: cognito
             scope: openid
+            # ローカル環境以外ではhttpsにする必要があり。
             redirectUri: http://localhost:8080/login/oauth2/code/cognito
             authorization-grant-type: authorization_code
         provider:
