@@ -1,0 +1,40 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: false
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: "jdbc:postgresql://database-3.cpogumsmlajx.us-east-1.rds.amazonaws.com:5432/postgres"
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
+    #comment
+  security:
+    oauth2:
+      client:
+        registration:
+          cognito-client-1:
+            client-id: 2v54r0t65von5bb3hp1ubri7hm
+            #client-secret: b67u8jub8svfblentnkoj31b31jaguobojieufiavv135cgo481
+            client-name: Cognito Code Grant
+            provider: cognito
+            scope: openid
+            redirectUri: http://localhost:8080/login/oauth2/code/cognito
+            authorization-grant-type: authorization_code
+        provider:
+          cognito:
+            authorization-uri: https://144026253291.auth.us-east-1.amazoncognito.com/oauth2/authorize
+            token-uri: https://144026253291.auth.us-east-1.amazoncognito.com/oauth2/token
+            user-info-uri: https://144026253291.auth.us-east-1.amazoncognito.com/oauth2/userInfo
+            jwk-set-uri: https://cognito-idp.us-east-1.amazonaws.com/us-east-1_R3t4CjVH0/.well-known/jwks.json
+            user-name-attribute: cognito:username
+server:
+  port : 8080
+
+#logging:
+#  level:
+#    root: DEBUG
