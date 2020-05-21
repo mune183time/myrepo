@@ -48,7 +48,7 @@ test {
 //docker tag springbootdocker:latest 144026253291.dkr.ecr.us-east-1.amazonaws.com/springbootdocker:latest
 //docker push                        144026253291.dkr.ecr.us-east-1.amazonaws.com/springbootdocker:latest
 docker {
-    name "144026253291.dkr.ecr.us-east-1.amazonaws.com/${bootJar.baseName}"
+    name "361603813509.dkr.ecr.us-east-1.amazonaws.com/${bootJar.baseName}"
     files bootJar.archivePath
     buildArgs(['JAR_FILE': "${bootJar.archiveName}"])
 }
