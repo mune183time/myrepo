@@ -8,7 +8,7 @@ spring:
     hibernate:
       ddl-auto: update
   datasource:
-    url: "jdbc:postgresql://database-3.cpogumsmlajx.us-east-1.rds.amazonaws.com:5432/postgres"
+    url: "jdbc:postgresql://database-1.cletlzmtdqdf.us-east-1.rds.amazonaws.com:5432/postgres"
     username: postgres
     password: postgres
     driverClassName: org.postgresql.Driver
@@ -18,20 +18,20 @@ spring:
       client:
         registration:
           cognito-client-1:
-            client-id: 2v54r0t65von5bb3hp1ubri7hm
-            #client-secret: b67u8jub8svfblentnkoj31b31jaguobojieufiavv135cgo481
+            client-id: 3n8keouehcfl5tqll3kkco5en7
+            client-secret: 54le05daac08ohs21vm3mqq9lcph8ftn16va6gf0429hb75tlr0
             client-name: Cognito Code Grant
             provider: cognito
             scope: openid
             # ローカル環境以外ではhttpsにする必要があり。
-            redirectUri: http://localhost:8080/login/oauth2/code/cognito
+            redirectUri: https://www.mune183time.uk/login/oauth2/code/cognito
             authorization-grant-type: authorization_code
         provider:
           cognito:
-            authorization-uri: https://144026253291.auth.us-east-1.amazoncognito.com/oauth2/authorize
-            token-uri: https://144026253291.auth.us-east-1.amazoncognito.com/oauth2/token
-            user-info-uri: https://144026253291.auth.us-east-1.amazoncognito.com/oauth2/userInfo
-            jwk-set-uri: https://cognito-idp.us-east-1.amazonaws.com/us-east-1_R3t4CjVH0/.well-known/jwks.json
+            authorization-uri: https://361603813509.auth.us-east-1.amazoncognito.com/oauth2/authorize
+            token-uri: https://361603813509.auth.us-east-1.amazoncognito.com/oauth2/token
+            user-info-uri: https://361603813509.auth.us-east-1.amazoncognito.com/oauth2/userInfo
+            jwk-set-uri: https://cognito-idp.us-east-1.amazonaws.com/us-east-1_WqWPJF19s/.well-known/jwks.json
             user-name-attribute: cognito:username
 server:
   port : 8080
