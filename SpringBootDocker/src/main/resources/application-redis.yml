@@ -1,4 +1,4 @@
 spring:
   redis:
-   host: localhost
-   port: 8081
+   host: myredis-001.wfv1ci.0001.use1.cache.amazonaws.com
+   port: 6379
