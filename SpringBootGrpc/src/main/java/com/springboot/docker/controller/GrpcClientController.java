@@ -28,6 +28,7 @@ public class GrpcClientController {
 
         HelloRequest request = HelloRequest.newBuilder()
                 .setName(name)
+                .setCommon(HelloRequest.newBuilder().getCommonBuilder().setAtt1("att1").build())
                 .build();
 
         HelloReply reply = stub.sayHello(request);
