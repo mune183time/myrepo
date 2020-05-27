@@ -3,11 +3,11 @@ package com.springboot.docker.controller;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.context.annotation.Profile;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +19,9 @@ import org.springframework.web.client.RestTemplate;
 import com.springboot.docker.domain.User;
 import com.springboot.docker.repository.UserRepository;
 
-@Profile({ "prod" })
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RequestMapping("/user")
 @RestController
 public class UserController {
@@ -64,6 +66,27 @@ public class UserController {
     @GetMapping(path = "/hc")
     public int hc() {
         return 200;
+    }
+
+    @GetMapping(path = "/setsession")
+    public void setSession(HttpSession session, String key, String value) {
+        if (session == null) {
+            log.info("session is null");
+            return;
+        }
+
+        session.setAttribute(key, value);
+    }
+
+    @GetMapping(path = "/getsession")
+    public void getSession(HttpSession session, String key) {
+        if (session == null) {
+            log.info("session is null");
+            return;
+        }
+
+        Object value = session.getAttribute(key);
+        log.info("value = " + value);
     }
 
     private String getHostInfo() {
